@@ -4,6 +4,8 @@ this repository contains the full copyright notices and license terms. -->
 <form string="Delivery" col="6">
     <label name="party"/>
     <field name="party"/>
+    <label name="number"/>
+    <field name="number"/>
     <notebook colspan="6">
         <page string="Delivery" id="delivery">
             <label name="delivery_date"/>

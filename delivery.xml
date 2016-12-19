@@ -90,5 +90,19 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
              <field name="wiz_name">sale.consolidate_invoice</field>
              <field name="model">sale.delivery</field>
         </record>
+
+        <!-- -->
+        <record model="ir.action.report" id="report_delivery_note">
+           <field name="name">Delivery Note</field>
+           <field name="model">sale.delivery</field>
+           <field name="report_name">sale.delivery_report</field>
+           <field name="report">nodux_sale_delivery_note/delivery_note.odt</field>
+       </record>
+
+       <record model="ir.action.keyword" id="report_delivery_note_keyword">
+           <field name="keyword">form_print</field>
+           <field name="model">sale.delivery,-1</field>
+           <field name="action" ref="report_delivery_note"/>
+       </record>
     </data>
 </tryton>

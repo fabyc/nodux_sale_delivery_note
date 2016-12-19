@@ -10,11 +10,21 @@ from trytond.pyson import Bool, Eval, Or, If, Id
 from trytond.wizard import (Wizard, StateView, StateAction, StateTransition,
     Button)
 from trytond.modules.company import CompanyReport
+from trytond.report import Report
 
-__all__ = ['Delivery', 'DeliveryLine', 'DeliveryLineTax', 'ValidatedInvoice']
+__all__ = ['Delivery', 'DeliveryLine', 'DeliveryLineTax', 'ValidatedInvoice',
+'DeliveryNoteReport']
 __metaclass__ = PoolMeta
 
 _ZERO = Decimal(0)
+
+conversor = None
+try:
+    from numword import numword_es
+    conversor = numword_es.NumWordES()
+except:
+    print("Warning: Does not possible import numword module!")
+    print("Please install it...!")
 
 
 class Delivery(ModelSQL, ModelView):
@@ -36,6 +46,9 @@ class Delivery(ModelSQL, ModelView):
         ('anulled', 'Anulled'),
         ('invoiced', 'Invoiced'),
     ], 'State', readonly=True, required=True)
+
+    number = fields.Char('Number', readonly=True, help="Delivery Note Number")
+
     delivery_date = fields.Date('Date',
         states={
             'readonly': ~Eval('state').in_(['draft', 'quotation']),
@@ -219,6 +232,12 @@ class Delivery(ModelSQL, ModelView):
                 changes['total_amount'])
         return changes
 
+    def get_amount2words(self, value):
+            if conversor:
+                return (conversor.cardinal(int(value))).upper()
+            else:
+                return ''
+
     def get_tax_amount(self):
         pool = Pool()
         Tax = pool.get('account.tax')
@@ -322,6 +341,43 @@ class Delivery(ModelSQL, ModelView):
     def get_moves(self, name):
         return [m.id for l in self.lines for m in l.moves]
 
+    def set_number(self):
+        sequence_delivery_note = None
+        pool = Pool()
+        Shop = Pool().get('sale.shop')
+        shop = Shop(Transaction().context.get('shop'))
+
+        if shop.sequence_delivery_note:
+            sequence_delivery_note = shop.sequence_delivery_note
+
+        if sequence_delivery_note:
+            if len(str(sequence_delivery_note)) == 1:
+                number = '00000000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 2:
+                number = '0000000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 3:
+                number = '000000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 4:
+                number = '00000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 5:
+                number = '0000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 6:
+                number = '000'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 7:
+                number = '00'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 8:
+                number = '0'+str(sequence_delivery_note)
+            elif len(str(sequence_delivery_note)) == 9:
+                number = +str(sequence_delivery_note)
+            print "Shop ", shop
+            print "sequence_delivery_note", shop.sequence_delivery_note
+            shop.sequence_delivery_note = sequence_delivery_note + 1
+            shop.save()
+            print "sequence_delivery_note", shop.sequence_delivery_note
+        print "El numero ", number
+        vals = {'number': number}
+        self.write([self], vals)
+
     @classmethod
     @ModelView.button
     def save(cls, sales):
@@ -329,6 +385,7 @@ class Delivery(ModelSQL, ModelView):
         sale = sales[0]
         shipment_type = 'out'
         sale.create_shipment(shipment_type)
+        sale.set_number()
         cls.write(sales, {'state': 'saved'})
 
     @classmethod
@@ -750,3 +807,86 @@ class ValidatedInvoice(Wizard):
                     }
                 default['lines'].append(lines)
         return default
+
+
+class DeliveryNoteReport(Report):
+    __name__ = 'sale.delivery_report'
+
+    @classmethod
+    def parse(cls, report, records, data, localcontext):
+        pool = Pool()
+        User = pool.get('res.user')
+        Delivery = pool.get('sale.delivery')
+
+        delivery = records[0]
+        User = pool.get('res.user')
+        user = User(Transaction().user)
+
+
+        d = str(delivery.total_amount)
+        if '.' in d:
+            decimales = d[-2:]
+            if decimales[0] == '.':
+                 decimales = decimales[1]+'0'
+        else:
+            decimales = '00'
+
+        localcontext['company'] = user.company
+        localcontext['delivery'] = delivery
+        localcontext['subtotal_0'] = cls._get_subtotal_0(Delivery, delivery)
+        localcontext['subtotal_12'] = cls._get_subtotal_12(Delivery, delivery)
+        localcontext['subtotal_14'] = cls._get_subtotal_14(Delivery, delivery)
+        localcontext['amount2words']=cls._get_amount_to_pay_words(Delivery, delivery)
+        localcontext['decimales'] = decimales
+        localcontext['descuento'] = Decimal(0.0)
+        return super(DeliveryNoteReport, cls).parse(report, records, data,
+                localcontext=localcontext)
+
+    @classmethod
+    def _get_amount_to_pay_words(cls, Delivery, delivery):
+        amount_to_pay_words = ""
+        if delivery.total_amount and conversor:
+            amount_to_pay_words = delivery.get_amount2words(delivery.total_amount)
+        return amount_to_pay_words
+
+    @classmethod
+    def _get_subtotal_12(cls, Delivery, delivery):
+        subtotal12 = Decimal(0.00)
+        pool = Pool()
+
+        for line in delivery.lines:
+            if  line.taxs:
+                for t in line.taxs:
+                    if str('{:.0f}'.format(t.rate*100)) == '12':
+                        subtotal12= subtotal12 + (line.amount)
+        if subtotal12 < 0:
+            subtotal12 = subtotal12*(-1)
+        return subtotal12
+
+    @classmethod
+    def _get_subtotal_14(cls, Delivery, delivery):
+        subtotal14 = Decimal(0.00)
+        pool = Pool()
+
+        for line in delivery.lines:
+            if  line.taxs:
+                for t in line.taxs:
+                    if str('{:.0f}'.format(t.rate*100)) == '14':
+                        subtotal14= subtotal14 + (line.amount)
+        if subtotal14 < 0:
+            subtotal14 = subtotal14*(-1)
+        return subtotal14
+
+    @classmethod
+    def _get_subtotal_0(cls, Delivery, delivery):
+        subtotal0 = Decimal(0.00)
+        pool = Pool()
+
+        for line in delivery.lines:
+            if  line.taxs:
+                for t in line.taxs:
+                    if str('{:.0f}'.format(t.rate*100)) == '0':
+                        subtotal0= subtotal0 + (line.amount)
+        if subtotal0 < 0:
+            subtotal0 = subtotal0*(-1)
+        return subtotal0
