@@ -369,12 +369,8 @@ class Delivery(ModelSQL, ModelView):
                 number = '0'+str(sequence_delivery_note)
             elif len(str(sequence_delivery_note)) == 9:
                 number = +str(sequence_delivery_note)
-            print "Shop ", shop
-            print "sequence_delivery_note", shop.sequence_delivery_note
             shop.sequence_delivery_note = sequence_delivery_note + 1
             shop.save()
-            print "sequence_delivery_note", shop.sequence_delivery_note
-        print "El numero ", number
         vals = {'number': number}
         self.write([self], vals)
 

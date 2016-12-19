@@ -42,6 +42,10 @@ msgctxt "field:sale.delivery,moves:"
 msgid "Moves"
 msgstr "Movimientos"
 
+msgctxt "field:sale.delivery,number:"
+msgid "Number"
+msgstr "Número"
+
 msgctxt "field:sale.delivery,party:"
 msgid "Party"
 msgstr "Cliente"
@@ -230,7 +234,19 @@ msgctxt "field:sale.delivery_line-account.tax,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "field:sale.shop,sequence_delivery_note:"
+msgid "Sequence Delivery Note"
+msgstr "Secuencia Nota de Entrega"
+
+msgctxt "help:sale.delivery,number:"
+msgid "Delivery Note Number"
+msgstr "Número de Nota de Entrega"
+
 msgctxt "model:ir.action,name:act_delivery_form"
+msgid "Delivery Note"
+msgstr "Nota de Entrega"
+
+msgctxt "model:ir.action,name:report_delivery_note"
 msgid "Delivery Note"
 msgstr "Nota de Entrega"
 
@@ -264,7 +280,7 @@ msgstr "Nota de Entrega"
 
 msgctxt "model:sale.delivery,name:"
 msgid "Delivery"
-msgstr "Entrega"
+msgstr "Nota de Entrega"
 
 msgctxt "model:sale.delivery_line,name:"
 msgid "Delivery Line"
@@ -273,6 +289,126 @@ msgstr "Lineas Nota de Entrega"
 msgctxt "model:sale.delivery_line-account.tax,name:"
 msgid "Delivery Line - Tax"
 msgstr "Lineas de Entrega - Impuestos"
+
+msgctxt "odt:sale.delivery_report:"
+msgid "$"
+msgstr "$"
+
+msgctxt "odt:sale.delivery_report:"
+msgid "%:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:sale.delivery_report:"
+msgid "/100"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "0"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "14"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "4"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid ":"
+msgstr ":"
+
+msgctxt "odt:sale.delivery_report:"
+msgid "C.I./RUC"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Cant."
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Cliente:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Código"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "DOLARES"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Descripción"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Descuento:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Dirección:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "ENTREGUE CONFORME"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Fecha:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "IVA 1"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Nodux Cía. Ltda.: (07) 2 560215 – 0999323367 – hola@nodux.ec"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "P. Unit."
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "RECIBI CONFORME"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Referencia No."
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "SON:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Subt."
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Subtotal:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "TOTAL:"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Teléfono"
+msgstr ""
+
+msgctxt "odt:sale.delivery_report:"
+msgid "Vendedor:"
+msgstr ""
 
 msgctxt "selection:sale.delivery,state:"
 msgid "Anulled"
