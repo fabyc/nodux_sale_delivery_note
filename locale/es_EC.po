@@ -1,0 +1,343 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:sale.delivery,comment:"
+msgid "Comment"
+msgstr "Observaciones"
+
+msgctxt "field:sale.delivery,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sale.delivery,create_date:"
+msgid "Create Date"
+msgstr "Fecha de Creación"
+
+msgctxt "field:sale.delivery,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:sale.delivery,currency:"
+msgid "Currency"
+msgstr "Moneda"
+
+msgctxt "field:sale.delivery,currency_digits:"
+msgid "Currency Digits"
+msgstr "Decimales de Moneda"
+
+msgctxt "field:sale.delivery,delivery_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sale.delivery,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.delivery,lines:"
+msgid "Lines"
+msgstr "Transacciones"
+
+msgctxt "field:sale.delivery,moves:"
+msgid "Moves"
+msgstr "Movimientos"
+
+msgctxt "field:sale.delivery,party:"
+msgid "Party"
+msgstr "Cliente"
+
+msgctxt "field:sale.delivery,party_lang:"
+msgid "Party Language"
+msgstr "Idioma del Tercero"
+
+msgctxt "field:sale.delivery,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.delivery,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:sale.delivery,tax_amount:"
+msgid "Tax"
+msgstr "Impuestos"
+
+msgctxt "field:sale.delivery,tax_amount_cache:"
+msgid "Tax Cache"
+msgstr "Impuestos precalculados"
+
+msgctxt "field:sale.delivery,total_amount:"
+msgid "Total"
+msgstr "Total"
+
+msgctxt "field:sale.delivery,total_amount_cache:"
+msgid "Total Tax"
+msgstr "Total impuestos"
+
+msgctxt "field:sale.delivery,untaxed_amount:"
+msgid "Untaxed"
+msgstr "Base (sin impuestos)"
+
+msgctxt "field:sale.delivery,untaxed_amount_cache:"
+msgid "Untaxed Cache"
+msgstr "Base imponible precalculada"
+
+msgctxt "field:sale.delivery,warehouse:"
+msgid "Warehouse"
+msgstr "Bodega"
+
+msgctxt "field:sale.delivery,write_date:"
+msgid "Write Date"
+msgstr "Modificado por usuario"
+
+msgctxt "field:sale.delivery,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:sale.delivery_line,amount:"
+msgid "Amount"
+msgstr "Valor"
+
+msgctxt "field:sale.delivery_line,create_date:"
+msgid "Create Date"
+msgstr "Fecha de Creación"
+
+msgctxt "field:sale.delivery_line,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:sale.delivery_line,delivery:"
+msgid "Delivery"
+msgstr "Entrega"
+
+msgctxt "field:sale.delivery_line,delivery_date:"
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+msgctxt "field:sale.delivery_line,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:sale.delivery_line,from_location:"
+msgid "From Location"
+msgstr "Desde ubicación"
+
+msgctxt "field:sale.delivery_line,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.delivery_line,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:sale.delivery_line,moves:"
+msgid "Moves"
+msgstr "Movimientos"
+
+msgctxt "field:sale.delivery_line,note:"
+msgid "Note"
+msgstr "Nota"
+
+msgctxt "field:sale.delivery_line,product:"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "field:sale.delivery_line,product_type:"
+msgid "Product Type"
+msgstr "Tipo de producto"
+
+msgctxt "field:sale.delivery_line,product_uom_category:"
+msgid "Product Uom Category"
+msgstr "Categoría de UdM de producto"
+
+msgctxt "field:sale.delivery_line,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sale.delivery_line,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.delivery_line,sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:sale.delivery_line,taxs:"
+msgid "Taxes"
+msgstr "Impuestos"
+
+msgctxt "field:sale.delivery_line,to_location:"
+msgid "To Location"
+msgstr "A ubicación"
+
+msgctxt "field:sale.delivery_line,type:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "field:sale.delivery_line,unit:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "field:sale.delivery_line,unit_digits:"
+msgid "Unit Digits"
+msgstr "Decimales de unidad"
+
+msgctxt "field:sale.delivery_line,unit_price:"
+msgid "Unit Price"
+msgstr "Precio Unitario dcto."
+
+msgctxt "field:sale.delivery_line,warehouse:"
+msgid "Warehouse"
+msgstr "Bodega"
+
+msgctxt "field:sale.delivery_line,write_date:"
+msgid "Write Date"
+msgstr "Modificado por usuario"
+
+msgctxt "field:sale.delivery_line,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:sale.delivery_line-account.tax,create_date:"
+msgid "Create Date"
+msgstr "Fecha de Creación"
+
+msgctxt "field:sale.delivery_line-account.tax,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:sale.delivery_line-account.tax,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.delivery_line-account.tax,line:"
+msgid "Delivery Line"
+msgstr "Lineas Nota de Entrega"
+
+msgctxt "field:sale.delivery_line-account.tax,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.delivery_line-account.tax,tax:"
+msgid "Tax"
+msgstr "Impuestos"
+
+msgctxt "field:sale.delivery_line-account.tax,write_date:"
+msgid "Write Date"
+msgstr "Modificado por usuario"
+
+msgctxt "field:sale.delivery_line-account.tax,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:ir.action,name:act_delivery_form"
+msgid "Delivery Note"
+msgstr "Nota de Entrega"
+
+msgctxt "model:ir.action,name:wizard_consolidate"
+msgid "Venta TPV"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_delivery_form_domain_anulled"
+msgid "Anulled"
+msgstr "Anulada"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_delivery_form_domain_draft"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_delivery_form_domain_invoiced"
+msgid "Invoiced"
+msgstr "Facturada"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_delivery_form_domain_saved"
+msgid "Saved"
+msgstr "Guardada"
+
+msgctxt "model:ir.ui.menu,name:delivery_sale"
+msgid "Delivery Note"
+msgstr "Nota de Entrega"
+
+msgctxt "model:sale.delivery,name:"
+msgid "Delivery"
+msgstr "Entrega"
+
+msgctxt "model:sale.delivery_line,name:"
+msgid "Delivery Line"
+msgstr "Lineas Nota de Entrega"
+
+msgctxt "model:sale.delivery_line-account.tax,name:"
+msgid "Delivery Line - Tax"
+msgstr "Lineas de Entrega - Impuestos"
+
+msgctxt "selection:sale.delivery,state:"
+msgid "Anulled"
+msgstr "Anulado"
+
+msgctxt "selection:sale.delivery,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:sale.delivery,state:"
+msgid "Invoiced"
+msgstr "Facturada"
+
+msgctxt "selection:sale.delivery,state:"
+msgid "Saved"
+msgstr "Guardada"
+
+msgctxt "selection:sale.delivery_line,type:"
+msgid "Line"
+msgstr "Línea"
+
+msgctxt "view:sale.delivery:"
+msgid "Anull"
+msgstr "Anular"
+
+msgctxt "view:sale.delivery:"
+msgid "Consolidate Invoice"
+msgstr "Consolidar Factura"
+
+msgctxt "view:sale.delivery:"
+msgid "Delivery"
+msgstr "Nota de Entrega"
+
+msgctxt "view:sale.delivery:"
+msgid "Other Info"
+msgstr "Información Adicional"
+
+msgctxt "view:sale.delivery:"
+msgid "Sales"
+msgstr "Ventas"
+
+msgctxt "view:sale.delivery:"
+msgid "Save"
+msgstr "Guardar"
+
+msgctxt "view:sale.delivery_line:"
+msgid "Delivery Line"
+msgstr "Lineas Nota de Entrega"
+
+msgctxt "view:sale.delivery_line:"
+msgid "Delivery Lines"
+msgstr "Lineas Nota de Entrega"
+
+msgctxt "view:sale.delivery_line:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:sale.delivery_line:"
+msgid "Lines"
+msgstr "Lineas"
+
+msgctxt "view:sale.delivery_line:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "wizard_button:sale.consolidate_invoice,start,end:"
+msgid "Cerrar"
+msgstr ""

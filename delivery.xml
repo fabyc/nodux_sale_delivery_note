@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!-- This file is part sale_pos module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <!-- Views -->
+        <record model="ir.ui.view" id="delivery_line_view_form">
+            <field name="model">sale.delivery_line</field>
+            <field name="type">form</field>
+            <field name="name">delivery_line_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="delivery_line_view_tree">
+            <field name="model">sale.delivery_line</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="name">delivery_line_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="delivery_line_view_tree_sequence">
+            <field name="model">sale.delivery_line</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="20"/>
+            <field name="name">delivery_line_tree_sequence</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="delivery_view_tree">
+            <field name="model">sale.delivery</field>
+            <field name="type">tree</field>
+            <field name="priority">20</field>
+            <field name="name">delivery_tree</field>
+        </record>
+        <record model="ir.ui.view" id="delivery_view_form">
+            <field name="model">sale.delivery</field>
+            <field name="type">form</field>
+            <field name="priority">20</field>
+            <field name="name">delivery_form</field>
+        </record>
+
+        <!-- Actions -->
+        <record model="ir.action.act_window" id="act_delivery_form">
+            <field name="name">Delivery Note</field>
+            <field name="res_model">sale.delivery</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_delivery_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="delivery_view_form"/>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_delivery_view_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="delivery_view_tree"/>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_delivery_form_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_delivery_form_domain_saved">
+            <field name="name">Saved</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', '=', 'saved')]</field>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_delivery_form_domain_anulled">
+            <field name="name">Anulled</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain">[('state', '=', 'anulled')]</field>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_delivery_form_domain_invoiced">
+            <field name="name">Invoiced</field>
+            <field name="sequence" eval="40"/>
+            <field name="domain">[('state', '=', 'invoiced')]</field>
+            <field name="act_window" ref="act_delivery_form"/>
+        </record>
+
+        <menuitem name="Delivery Note" parent="sale.menu_sale" id="delivery_sale"
+            sequence="5" icon="tryton-list" action="act_delivery_form"/>
+
+        <!--Wizard Validate -->
+        <record model="ir.action.wizard" id="wizard_consolidate">
+             <field name="name">Venta TPV</field>
+             <field name="wiz_name">sale.consolidate_invoice</field>
+             <field name="model">sale.delivery</field>
+        </record>
+    </data>
+</tryton>
