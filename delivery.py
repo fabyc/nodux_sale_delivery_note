@@ -189,7 +189,7 @@ class Delivery(ModelSQL, ModelView):
             'untaxed_amount': Decimal('0.0'),
             'tax_amount': Decimal('0.0'),
             'total_amount': Decimal('0.0'),
-            }
+        }
 
         if self.lines:
             context = self.get_tax_context()

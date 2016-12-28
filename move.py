@@ -10,7 +10,7 @@ class Move:
 
     @staticmethod
     def _get_origin():
-        return ['stock.inventory.line', 'sale.delivery_line', 'sale.line']
+        return ['stock.inventory.line', 'sale.delivery_line', 'sale.line', 'purchase.line']
 
     @classmethod
     def get_origin(cls):
